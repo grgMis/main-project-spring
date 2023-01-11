@@ -1,5 +1,6 @@
 package com.example.mainproject.controller;
 
+import com.example.mainproject.entity.DeptEntity;
 import com.example.mainproject.entity.EquipmentClassEntity;
 import com.example.mainproject.entity.EquipmentModelEntity;
 import com.example.mainproject.service.EquipmentModelService;
@@ -7,12 +8,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/equipModel")
 public class EquipmentModelController {
 
     @Autowired
     private EquipmentModelService equipmentModelService;
+
+    @GetMapping("/equipModelAll")
+    List<EquipmentModelEntity> getEquipModelAll() {
+        return equipmentModelService.getAll();
+    }
 
     @PostMapping
     public ResponseEntity createEquipModel(@RequestBody EquipmentModelEntity equipmentModel,

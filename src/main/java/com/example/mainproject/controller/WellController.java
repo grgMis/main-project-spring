@@ -1,5 +1,6 @@
 package com.example.mainproject.controller;
 
+import com.example.mainproject.entity.DeptEntity;
 import com.example.mainproject.entity.EquipmentClassEntity;
 import com.example.mainproject.entity.WellEntity;
 import com.example.mainproject.repository.WellRepo;
@@ -9,12 +10,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/well")
 public class WellController {
 
     @Autowired
     private WellService wellService;
+
+    @GetMapping("/wellAll")
+    List<WellEntity> getWellAll() {
+        return wellService.getAll();
+    }
 
     @PostMapping
     public ResponseEntity createWell(@RequestBody WellEntity wellEntity,

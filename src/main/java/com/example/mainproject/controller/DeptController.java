@@ -1,6 +1,7 @@
 package com.example.mainproject.controller;
 
 import com.example.mainproject.entity.DeptEntity;
+import com.example.mainproject.entity.DeptTypeEntity;
 import com.example.mainproject.entity.EquipmentClassEntity;
 import com.example.mainproject.service.DeptService;
 import jakarta.persistence.criteria.CriteriaBuilder;
@@ -8,12 +9,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/dept")
 public class DeptController {
 
     @Autowired
     private DeptService deptService;
+    @GetMapping("/deptAll")
+    List<DeptEntity> getDeptAll() {
+        return deptService.getAll();
+    }
+
 
     @PostMapping
     public ResponseEntity createDept(@RequestBody DeptEntity deptEntity,

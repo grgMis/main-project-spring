@@ -9,6 +9,8 @@ import com.example.mainproject.repository.WellRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class WellService {
 
@@ -17,6 +19,10 @@ public class WellService {
 
     @Autowired
     private DeptRepo deptRepo;
+
+    public List<WellEntity> getAll() {
+        return (List<WellEntity>) wellRepo.findAll();
+    }
 
     public WellEntity createData(WellEntity wellEntity, Integer id){
         DeptEntity deptEntity = deptRepo.findById(id).get();

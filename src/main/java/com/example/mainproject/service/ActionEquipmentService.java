@@ -5,6 +5,8 @@ import com.example.mainproject.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ActionEquipmentService {
 
@@ -25,6 +27,10 @@ public class ActionEquipmentService {
 
     @Autowired
     private EquipmentStateRepo equipmentStateRepo;
+
+    public List<ActionEquipmentEntity> getAll() {
+        return (List<ActionEquipmentEntity>) actionEquipmentRepo.findAll();
+    }
 
     public ActionEquipmentEntity createData(ActionEquipmentEntity actionEquipmentEntity,
                                             Integer idActionOper,

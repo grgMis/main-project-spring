@@ -6,6 +6,8 @@ import com.example.mainproject.repository.DeptTypeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DeptTypeService {
 
@@ -14,6 +16,10 @@ public class DeptTypeService {
 
     public DeptTypeEntity addData(DeptTypeEntity deptType) {
         return deptTypeRepo.save(deptType);
+    }
+
+    public List<DeptTypeEntity> getAll() {
+        return (List<DeptTypeEntity>) deptTypeRepo.findAll();
     }
 
     public DeptTypeEntity getOne(Long id) throws DeptTypeNotFoundException {

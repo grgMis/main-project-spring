@@ -1,15 +1,22 @@
 package com.example.mainproject.service;
 
+import com.example.mainproject.entity.DeptEntity;
 import com.example.mainproject.entity.EquipmentCategoryEntity;
 import com.example.mainproject.repository.EquipmentCategoryRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class EquipmentCategoryService {
 
     @Autowired
     private EquipmentCategoryRepo equipmentCategoryRepo;
+
+    public List<EquipmentCategoryEntity> getAll() {
+        return (List<EquipmentCategoryEntity>) equipmentCategoryRepo.findAll();
+    }
 
     public EquipmentCategoryEntity createData(EquipmentCategoryEntity equipmentCategory) {
         return equipmentCategoryRepo.save(equipmentCategory);

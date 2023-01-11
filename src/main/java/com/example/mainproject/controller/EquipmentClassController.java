@@ -1,10 +1,13 @@
 package com.example.mainproject.controller;
 
+import com.example.mainproject.entity.DeptEntity;
 import com.example.mainproject.entity.EquipmentClassEntity;
 import com.example.mainproject.service.EquipmentClassService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/equipClass")
@@ -12,6 +15,11 @@ public class EquipmentClassController {
 
     @Autowired
     private EquipmentClassService equipmentClassService;
+
+    @GetMapping("/equipClassAll")
+    List<EquipmentClassEntity> getEquipClassAll() {
+        return equipmentClassService.getAll();
+    }
 
     @PostMapping
     public ResponseEntity createEquipClass(@RequestBody EquipmentClassEntity equipmentClass,

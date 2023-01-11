@@ -2,11 +2,14 @@ package com.example.mainproject.service;
 
 import com.example.mainproject.entity.ActionGroupEntity;
 import com.example.mainproject.entity.ActionTypeEntity;
+import com.example.mainproject.entity.DeptEntity;
 import com.example.mainproject.entity.EquipmentClassEntity;
 import com.example.mainproject.repository.ActionGroupRepo;
 import com.example.mainproject.repository.ActionTypeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ActionTypeService {
@@ -16,6 +19,10 @@ public class ActionTypeService {
 
     @Autowired
     private ActionGroupRepo actionGroupRepo;
+
+    public List<ActionTypeEntity> getAll() {
+        return (List<ActionTypeEntity>) actionTypeRepo.findAll();
+    }
 
     public ActionTypeEntity createData(ActionTypeEntity actionType, Long id){
         ActionGroupEntity actionGroup = actionGroupRepo.findById(id).get();

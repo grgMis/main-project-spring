@@ -1,5 +1,6 @@
 package com.example.mainproject.service;
 
+import com.example.mainproject.entity.DeptEntity;
 import com.example.mainproject.entity.EquipmentCategoryEntity;
 import com.example.mainproject.entity.EquipmentClassEntity;
 import com.example.mainproject.entity.EquipmentModelEntity;
@@ -7,6 +8,8 @@ import com.example.mainproject.repository.EquipmentClassRepo;
 import com.example.mainproject.repository.EquipmentModelRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class EquipmentModelService {
@@ -16,6 +19,10 @@ public class EquipmentModelService {
 
     @Autowired
     private EquipmentClassRepo equipmentClassRepo;
+
+    public List<EquipmentModelEntity> getAll() {
+        return (List<EquipmentModelEntity>) equipmentModelRepo.findAll();
+    }
 
     public EquipmentModelEntity createData(EquipmentModelEntity equipmentModel, Long id){
         EquipmentClassEntity equipmentClass = equipmentClassRepo.findById(id).get();

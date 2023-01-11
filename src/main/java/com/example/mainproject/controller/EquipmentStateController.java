@@ -1,10 +1,13 @@
 package com.example.mainproject.controller;
 
+import com.example.mainproject.entity.DeptEntity;
 import com.example.mainproject.entity.EquipmentStateEntity;
 import com.example.mainproject.service.EquipmentStateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/equipState")
@@ -12,6 +15,11 @@ public class EquipmentStateController {
 
     @Autowired
     private EquipmentStateService equipmentStateService;
+
+    @GetMapping("/equipStateAll")
+    List<EquipmentStateEntity> getEquipStateAll() {
+        return equipmentStateService.getAll();
+    }
 
     @PostMapping
     public ResponseEntity getDeptType(@RequestBody EquipmentStateEntity equipmentState) {

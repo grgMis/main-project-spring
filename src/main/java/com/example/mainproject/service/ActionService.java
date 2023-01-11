@@ -6,6 +6,9 @@ import com.example.mainproject.repository.ActionTypeRepo;
 import com.example.mainproject.repository.WellRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
 
 @Service
 public class ActionService {
@@ -18,6 +21,10 @@ public class ActionService {
 
     @Autowired
     private ActionTypeRepo actionTypeRepo;
+
+    public List<ActionEntity> getAll() {
+        return (List<ActionEntity>) actionRepo.findAll();
+    }
 
     public ActionEntity createData(ActionEntity actionEntity, Integer idWell, Long idActionType){
         WellEntity wellEntity = wellRepo.findById(idWell).get();

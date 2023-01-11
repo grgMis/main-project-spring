@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/deptType")
 public class DeptTypeController {
@@ -14,6 +16,10 @@ public class DeptTypeController {
     @Autowired
     private DeptTypeService deptTypeService;
 
+    @GetMapping("/deptTypeAll")
+    List<DeptTypeEntity> getDeptTypeAll() {
+        return deptTypeService.getAll();
+    }
 
     @PostMapping
     public ResponseEntity getDeptType(@RequestBody DeptTypeEntity deptType) {

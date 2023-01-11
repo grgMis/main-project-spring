@@ -9,6 +9,8 @@ import org.hibernate.persister.entity.SingleTableEntityPersister;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ActionOperationService {
 
@@ -23,6 +25,10 @@ public class ActionOperationService {
 
     @Autowired
     private HangerTypeRepo hangerTypeRepo;
+
+    public List<ActionOperationEntity> getAll() {
+        return (List<ActionOperationEntity>) actionOperationRepo.findAll();
+    }
 
     public ActionOperationEntity createData(ActionOperationEntity actionOperationEntity,
                                             Integer idAction,

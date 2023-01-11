@@ -1,10 +1,13 @@
 package com.example.mainproject.controller;
 
 import com.example.mainproject.entity.ActionOperationTypeEntity;
+import com.example.mainproject.entity.DeptEntity;
 import com.example.mainproject.service.ActionOperationTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/actionOperType")
@@ -12,6 +15,11 @@ public class ActionOperationTypeController {
 
     @Autowired
     private ActionOperationTypeService actionOperationTypeService;
+
+    @GetMapping("/actionOperTypeAll")
+    List<ActionOperationTypeEntity> getActionOperTypeAll() {
+        return actionOperationTypeService.getAll();
+    }
 
     @PostMapping
     public ResponseEntity getActionOperType(@RequestBody ActionOperationTypeEntity actionOperationType) {

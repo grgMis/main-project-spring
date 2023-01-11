@@ -1,11 +1,14 @@
 package com.example.mainproject.controller;
 
 import com.example.mainproject.entity.ActionTypeEntity;
+import com.example.mainproject.entity.DeptEntity;
 import com.example.mainproject.entity.EquipmentClassEntity;
 import com.example.mainproject.service.ActionTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/actionType")
@@ -13,6 +16,11 @@ public class ActionTypeController {
 
     @Autowired
     private ActionTypeService actionTypeService;
+
+    @GetMapping("/actionTypeAll")
+    List<ActionTypeEntity> getActionTypeAll() {
+        return actionTypeService.getAll();
+    }
 
     @PostMapping
     public ResponseEntity createActionType(@RequestBody ActionTypeEntity actionType,

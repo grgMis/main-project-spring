@@ -9,6 +9,8 @@ import com.example.mainproject.repository.DeptTypeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DeptService {
 
@@ -17,6 +19,10 @@ public class DeptService {
 
     @Autowired
     private DeptTypeRepo deptTypeRepo;
+
+    public List<DeptEntity> getAll() {
+        return (List<DeptEntity>) deptRepo.findAll();
+    }
 
     public DeptEntity createData(DeptEntity deptEntity, Long id){
         DeptTypeEntity deptTypeEntity = deptTypeRepo.findById(id).get();

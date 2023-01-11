@@ -1,10 +1,14 @@
 package com.example.mainproject.controller;
 
+import com.example.mainproject.entity.ActionEquipmentEntity;
 import com.example.mainproject.entity.ActionGroupEntity;
+import com.example.mainproject.entity.DeptEntity;
 import com.example.mainproject.service.ActionGroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/actionGroup")
@@ -12,6 +16,11 @@ public class ActionGroupController {
 
     @Autowired
     private ActionGroupService actionGroupService;
+
+    @GetMapping("/actionGroupAll")
+    List<ActionGroupEntity> getActionGroupAll() {
+        return actionGroupService.getAll();
+    }
 
     @PostMapping
     public ResponseEntity createActionGroup(@RequestBody ActionGroupEntity actionGroup) {

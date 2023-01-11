@@ -1,10 +1,13 @@
 package com.example.mainproject.controller;
 
+import com.example.mainproject.entity.DeptEntity;
 import com.example.mainproject.entity.HangerTypeEntity;
 import com.example.mainproject.service.HangerTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/hangerType")
@@ -12,6 +15,11 @@ public class HangerTypeController {
 
     @Autowired
     HangerTypeService hangerTypeService;
+
+    @GetMapping("/hangerTypeAll")
+    List<HangerTypeEntity> getHangerTypeAll() {
+        return hangerTypeService.getAll();
+    }
 
     @PostMapping
     public ResponseEntity getDeptType(@RequestBody HangerTypeEntity hangerType) {

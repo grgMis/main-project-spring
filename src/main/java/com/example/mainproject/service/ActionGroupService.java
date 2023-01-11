@@ -1,15 +1,22 @@
 package com.example.mainproject.service;
 
 import com.example.mainproject.entity.ActionGroupEntity;
+import com.example.mainproject.entity.DeptEntity;
 import com.example.mainproject.repository.ActionGroupRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ActionGroupService {
 
     @Autowired
     private ActionGroupRepo actionGroupRepo;
+
+    public List<ActionGroupEntity> getAll() {
+        return (List<ActionGroupEntity>) actionGroupRepo.findAll();
+    }
 
     public ActionGroupEntity createData(ActionGroupEntity actionGroup) {
         return actionGroupRepo.save(actionGroup);

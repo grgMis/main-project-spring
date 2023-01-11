@@ -1,13 +1,12 @@
 package com.example.mainproject.service;
 
-import com.example.mainproject.entity.EquipmentCategoryEntity;
-import com.example.mainproject.entity.EquipmentClassEntity;
-import com.example.mainproject.entity.EquipmentEntity;
-import com.example.mainproject.entity.EquipmentModelEntity;
+import com.example.mainproject.entity.*;
 import com.example.mainproject.repository.EquipmentModelRepo;
 import com.example.mainproject.repository.EquipmentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class EquipmentService {
@@ -17,6 +16,10 @@ public class EquipmentService {
 
     @Autowired
     private EquipmentModelRepo equipmentModelRepo;
+
+    public List<EquipmentEntity> getAll() {
+        return (List<EquipmentEntity>) equipmentRepo.findAll();
+    }
 
     public EquipmentEntity createData(EquipmentEntity equipmentEntity, Integer id){
         EquipmentModelEntity equipmentModel = equipmentModelRepo.findById(id).get();

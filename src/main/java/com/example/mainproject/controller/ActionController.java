@@ -6,12 +6,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/action")
 public class ActionController {
 
     @Autowired
     private ActionService actionService;
+
+    @GetMapping("/actionAll")
+    List<ActionEntity> getActionAll() {
+        return actionService.getAll();
+    }
 
     @PostMapping
     public ResponseEntity createAction(@RequestBody ActionEntity actionEntity,

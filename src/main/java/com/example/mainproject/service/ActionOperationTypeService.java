@@ -1,15 +1,22 @@
 package com.example.mainproject.service;
 
 import com.example.mainproject.entity.ActionOperationTypeEntity;
+import com.example.mainproject.entity.DeptEntity;
 import com.example.mainproject.repository.ActionOperationTypeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ActionOperationTypeService {
 
     @Autowired
     private ActionOperationTypeRepo actionOperationTypeRepo;
+
+    public List<ActionOperationTypeEntity> getAll() {
+        return (List<ActionOperationTypeEntity>) actionOperationTypeRepo.findAll();
+    }
 
     public ActionOperationTypeEntity addData(ActionOperationTypeEntity actionOperationType) {
         return actionOperationTypeRepo.save(actionOperationType);
