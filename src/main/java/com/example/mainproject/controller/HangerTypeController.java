@@ -32,7 +32,7 @@ public class HangerTypeController {
     }
 
     @GetMapping
-    public ResponseEntity getDeptType(@RequestParam Long hanger_type_id) {
+    public ResponseEntity getDeptType(@RequestParam Integer hanger_type_id) {
         try {
             return ResponseEntity.ok(hangerTypeService.getOne(hanger_type_id));
         } catch (Exception e) {
@@ -41,7 +41,7 @@ public class HangerTypeController {
     }
 
     @DeleteMapping("/{hanger_type_id}")
-    public ResponseEntity deleteDeptType(@PathVariable Long hanger_type_id) {
+    public ResponseEntity deleteDeptType(@PathVariable Integer hanger_type_id) {
         try {
             return ResponseEntity.ok("Тип подвески удален: " + hangerTypeService.deleteOne(hanger_type_id));
         } catch (Exception e) {
@@ -50,7 +50,7 @@ public class HangerTypeController {
     }
 
     @PutMapping
-    public ResponseEntity updateHangerType(@RequestParam Long hanger_type_id,
+    public ResponseEntity updateHangerType(@RequestParam Integer hanger_type_id,
                                               @RequestBody HangerTypeEntity hangerType) {
         try {
             return ResponseEntity.ok("Группа переименована: " + hangerTypeService.updateData(hanger_type_id, hangerType));

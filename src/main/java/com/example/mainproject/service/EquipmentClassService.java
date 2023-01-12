@@ -3,6 +3,7 @@ package com.example.mainproject.service;
 import com.example.mainproject.entity.DeptEntity;
 import com.example.mainproject.entity.EquipmentCategoryEntity;
 import com.example.mainproject.entity.EquipmentClassEntity;
+import com.example.mainproject.model.EquipmentClass;
 import com.example.mainproject.repository.EquipmentCategoryRepo;
 import com.example.mainproject.repository.EquipmentClassRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,23 +24,23 @@ public class EquipmentClassService {
         return (List<EquipmentClassEntity>) equipmentClassRepo.findAll();
     }
 
-    public EquipmentClassEntity createData(EquipmentClassEntity equipmentClass, Long id){
+    public EquipmentClass createData(EquipmentClassEntity equipmentClass, Integer id){
         EquipmentCategoryEntity equipmentCategory = equipmentCategoryRepo.findById(id).get();
         equipmentClass.setEquip_category_id(equipmentCategory);
-        return equipmentClassRepo.save(equipmentClass);
+        return EquipmentClass.toModel(equipmentClassRepo.save(equipmentClass));
     }
 
-    public EquipmentClassEntity getOne(Long id) {
+    public EquipmentClass getOne(Integer id) {
         EquipmentClassEntity equipmentClass = equipmentClassRepo.findById(id).get();
-        return equipmentClass;
+        return EquipmentClass.toModel(equipmentClass);
     }
 
-    public Long deleteOne(Long id){
+    public Integer deleteOne(Integer id){
         equipmentClassRepo.deleteById(id);
         return id;
     }
 
-    public Long updateData(Long id, EquipmentClassEntity equipmentClass) {
+    public Integer updateData(Integer id, EquipmentClassEntity equipmentClass) {
         EquipmentClassEntity entity = equipmentClassRepo.findById(id).get();
         entity.setEquip_class_name(equipmentClass.getEquip_class_name());
         entity.setEquip_class_sname(equipmentClass.getEquip_class_sname());

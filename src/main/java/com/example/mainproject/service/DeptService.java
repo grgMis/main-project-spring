@@ -4,6 +4,7 @@ import com.example.mainproject.entity.DeptEntity;
 import com.example.mainproject.entity.DeptTypeEntity;
 import com.example.mainproject.entity.EquipmentCategoryEntity;
 import com.example.mainproject.entity.EquipmentClassEntity;
+import com.example.mainproject.model.Dept;
 import com.example.mainproject.repository.DeptRepo;
 import com.example.mainproject.repository.DeptTypeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,15 +25,15 @@ public class DeptService {
         return (List<DeptEntity>) deptRepo.findAll();
     }
 
-    public DeptEntity createData(DeptEntity deptEntity, Long id){
+    public Dept createData(DeptEntity deptEntity, Integer id){
         DeptTypeEntity deptTypeEntity = deptTypeRepo.findById(id).get();
         deptEntity.setDept_type_id(deptTypeEntity);
-        return deptRepo.save(deptEntity);
+        return Dept.toModel(deptRepo.save(deptEntity));
     }
 
-    public DeptEntity getOne(Integer id) {
+    public Dept getOne(Integer id) {
         DeptEntity deptEntity = deptRepo.findById(id).get();
-        return deptEntity;
+        return Dept.toModel(deptEntity);
     }
 
     public Integer deleteOne(Integer id){

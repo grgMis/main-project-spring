@@ -1,5 +1,6 @@
 package com.example.mainproject.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import org.hibernate.annotations.CollectionId;
@@ -30,11 +31,20 @@ public class DeptEntity {
     @Column(nullable = true, length = 20)
     private String dept_sname;
 
-    @OneToMany(mappedBy = "dept_id")
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "dept_id")
     private List<WellEntity> wellEntityList;
 
 
     public DeptEntity() {
+    }
+
+    public List<WellEntity> getWellEntityList() {
+        return wellEntityList;
+    }
+
+    public void setWellEntityList(List<WellEntity> wellEntityList) {
+        this.wellEntityList = wellEntityList;
     }
 
     public Integer getDept_id() {

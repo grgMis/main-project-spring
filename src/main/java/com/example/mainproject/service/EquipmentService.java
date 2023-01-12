@@ -1,6 +1,7 @@
 package com.example.mainproject.service;
 
 import com.example.mainproject.entity.*;
+import com.example.mainproject.model.Equipment;
 import com.example.mainproject.repository.EquipmentModelRepo;
 import com.example.mainproject.repository.EquipmentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,15 +22,15 @@ public class EquipmentService {
         return (List<EquipmentEntity>) equipmentRepo.findAll();
     }
 
-    public EquipmentEntity createData(EquipmentEntity equipmentEntity, Integer id){
+    public Equipment createData(EquipmentEntity equipmentEntity, Integer id){
         EquipmentModelEntity equipmentModel = equipmentModelRepo.findById(id).get();
         equipmentEntity.setEquip_model_id(equipmentModel);
-        return equipmentRepo.save(equipmentEntity);
+        return Equipment.toModel(equipmentRepo.save(equipmentEntity));
     }
 
-    public EquipmentEntity getOne(Integer id) {
+    public Equipment getOne(Integer id) {
         EquipmentEntity equipmentEntity = equipmentRepo.findById(id).get();
-        return equipmentEntity;
+        return Equipment.toModel(equipmentEntity);
     }
 
     public Integer deleteOne(Integer id){

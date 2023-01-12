@@ -1,5 +1,6 @@
 package com.example.mainproject.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 public class EquipmentCategoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long equip_category_id;
+    private Integer equip_category_id;
 
     @Column(nullable = false, length = 40)
     private String equip_category_name;
@@ -16,17 +17,26 @@ public class EquipmentCategoryEntity {
     @Column(nullable = true, length = 20)
     private String equip_category_sname;
 
-    @OneToMany(mappedBy = "equip_category_id")
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "equip_category_id")
     private List<EquipmentClassEntity> equipmentClassEntityList;
 
     public EquipmentCategoryEntity() {
     }
 
-    public Long getEquip_category_id() {
+    public List<EquipmentClassEntity> getEquipmentClassEntityList() {
+        return equipmentClassEntityList;
+    }
+
+    public void setEquipmentClassEntityList(List<EquipmentClassEntity> equipmentClassEntityList) {
+        this.equipmentClassEntityList = equipmentClassEntityList;
+    }
+
+    public Integer getEquip_category_id() {
         return equip_category_id;
     }
 
-    public void setEquip_category_id(Long equip_category_id) {
+    public void setEquip_category_id(Integer equip_category_id) {
         this.equip_category_id = equip_category_id;
     }
 

@@ -4,6 +4,7 @@ import com.example.mainproject.entity.DeptEntity;
 import com.example.mainproject.entity.EquipmentCategoryEntity;
 import com.example.mainproject.entity.EquipmentClassEntity;
 import com.example.mainproject.entity.WellEntity;
+import com.example.mainproject.model.Well;
 import com.example.mainproject.repository.DeptRepo;
 import com.example.mainproject.repository.WellRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,15 +25,15 @@ public class WellService {
         return (List<WellEntity>) wellRepo.findAll();
     }
 
-    public WellEntity createData(WellEntity wellEntity, Integer id){
+    public Well createData(WellEntity wellEntity, Integer id){
         DeptEntity deptEntity = deptRepo.findById(id).get();
         wellEntity.setDept_id(deptEntity);
-        return wellRepo.save(wellEntity);
+        return Well.toModel(wellRepo.save(wellEntity));
     }
 
-    public WellEntity getOne(Integer id) {
+    public Well getOne(Integer id) {
         WellEntity wellEntity = wellRepo.findById(id).get();
-        return wellEntity;
+        return Well.toModel(wellEntity);
     }
 
     public Integer deleteOne(Integer id){

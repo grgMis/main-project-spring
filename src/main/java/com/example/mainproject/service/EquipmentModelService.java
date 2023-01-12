@@ -4,6 +4,7 @@ import com.example.mainproject.entity.DeptEntity;
 import com.example.mainproject.entity.EquipmentCategoryEntity;
 import com.example.mainproject.entity.EquipmentClassEntity;
 import com.example.mainproject.entity.EquipmentModelEntity;
+import com.example.mainproject.model.EquipmentModel;
 import com.example.mainproject.repository.EquipmentClassRepo;
 import com.example.mainproject.repository.EquipmentModelRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,15 +25,15 @@ public class EquipmentModelService {
         return (List<EquipmentModelEntity>) equipmentModelRepo.findAll();
     }
 
-    public EquipmentModelEntity createData(EquipmentModelEntity equipmentModel, Long id){
+    public EquipmentModel createData(EquipmentModelEntity equipmentModel, Integer id){
         EquipmentClassEntity equipmentClass = equipmentClassRepo.findById(id).get();
         equipmentModel.setEquip_class_id(equipmentClass);
-        return equipmentModelRepo.save(equipmentModel);
+        return EquipmentModel.toModel(equipmentModelRepo.save(equipmentModel));
     }
 
-    public EquipmentModelEntity getOne(Integer id) {
+    public EquipmentModel getOne(Integer id) {
         EquipmentModelEntity equipmentModel = equipmentModelRepo.findById(id).get();
-        return equipmentModel;
+        return EquipmentModel.toModel(equipmentModel);
     }
 
     public Integer deleteOne(Integer id){

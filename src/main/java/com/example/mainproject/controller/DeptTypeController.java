@@ -17,7 +17,7 @@ public class DeptTypeController {
     private DeptTypeService deptTypeService;
 
     @GetMapping("/deptTypeAll")
-    List<DeptTypeEntity> getDeptTypeAll() {
+    public List<DeptTypeEntity> getDeptTypeAll() {
         return deptTypeService.getAll();
     }
 
@@ -32,7 +32,7 @@ public class DeptTypeController {
     }
 
     @GetMapping
-    public ResponseEntity getDeptType(@RequestParam Long dept_type_id) {
+    public ResponseEntity getDeptType(@RequestParam Integer dept_type_id) {
         try {
             return ResponseEntity.ok(deptTypeService.getOne(dept_type_id));
         } catch (DeptTypeNotFoundException e) {
@@ -43,7 +43,7 @@ public class DeptTypeController {
     }
 
     @DeleteMapping("/{dept_type_id}")
-    public ResponseEntity deleteDeptType(@PathVariable Long dept_type_id) {
+    public ResponseEntity deleteDeptType(@PathVariable Integer dept_type_id) {
         try {
             return ResponseEntity.ok("Тип оборудования удален: " + deptTypeService.deleteOne(dept_type_id));
         } catch (Exception e) {
@@ -52,8 +52,8 @@ public class DeptTypeController {
     }
 
     @PutMapping
-    public ResponseEntity updateDeptType(@RequestParam Long dept_type_id,
-                                              @RequestBody DeptTypeEntity deptType) {
+    public ResponseEntity updateDeptType(@RequestParam Integer dept_type_id,
+                                         @RequestBody DeptTypeEntity deptType) {
         try {
             return ResponseEntity.ok("Группа переименована: " + deptTypeService.updateData(dept_type_id, deptType));
         } catch (Exception e) {

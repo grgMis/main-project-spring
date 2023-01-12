@@ -23,7 +23,7 @@ public class EquipmentClassController {
 
     @PostMapping
     public ResponseEntity createEquipClass(@RequestBody EquipmentClassEntity equipmentClass,
-                                           @RequestParam Long equip_category_id){
+                                           @RequestParam Integer equip_category_id){
         try {
             return ResponseEntity.ok(equipmentClassService.createData(equipmentClass, equip_category_id));
         } catch (Exception e) {
@@ -32,7 +32,7 @@ public class EquipmentClassController {
     }
 
     @GetMapping
-    public ResponseEntity getEquipClass(@RequestParam Long equip_class_id) {
+    public ResponseEntity getEquipClass(@RequestParam Integer equip_class_id) {
         try {
             return ResponseEntity.ok(equipmentClassService.getOne(equip_class_id));
         } catch (Exception e) {
@@ -41,7 +41,7 @@ public class EquipmentClassController {
     }
 
     @DeleteMapping("/{equip_class_id}")
-    public ResponseEntity deleteEquipClass(@PathVariable Long equip_class_id) {
+    public ResponseEntity deleteEquipClass(@PathVariable Integer equip_class_id) {
         try {
             return ResponseEntity.ok(equipmentClassService.deleteOne(equip_class_id));
         } catch (Exception e) {
@@ -50,7 +50,7 @@ public class EquipmentClassController {
     }
 
     @PutMapping
-    public ResponseEntity updateEquipClass(@RequestParam Long equip_class_id,
+    public ResponseEntity updateEquipClass(@RequestParam Integer equip_class_id,
                                               @RequestBody EquipmentClassEntity equipmentClass) {
         try {
             return ResponseEntity.ok(equipmentClassService.updateData(equip_class_id, equipmentClass));

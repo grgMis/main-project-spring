@@ -1,5 +1,6 @@
 package com.example.mainproject.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 public class DeptTypeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long dept_type_id;
+    private Integer dept_type_id;
 
     @Column(nullable = false, length = 40)
     private String dept_type_name;
@@ -16,18 +17,27 @@ public class DeptTypeEntity {
     @Column(nullable = true, length = 20)
     private String dept_type_sname;
 
-    @OneToMany(mappedBy = "dept_type_id")
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "dept_type_id")
     private List<DeptEntity> deptEntityList;
 
 
     public DeptTypeEntity() {
     }
 
-    public Long getDept_type_id() {
+    public List<DeptEntity> getDeptEntityList() {
+        return deptEntityList;
+    }
+
+    public void setDeptEntityList(List<DeptEntity> deptEntityList) {
+        this.deptEntityList = deptEntityList;
+    }
+
+    public Integer getDept_type_id() {
         return dept_type_id;
     }
 
-    public void setDept_type_id(Long dept_type_id) {
+    public void setDept_type_id(Integer dept_type_id) {
         this.dept_type_id = dept_type_id;
     }
 

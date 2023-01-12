@@ -26,7 +26,7 @@ public class ActionService {
         return (List<ActionEntity>) actionRepo.findAll();
     }
 
-    public ActionEntity createData(ActionEntity actionEntity, Integer idWell, Long idActionType){
+    public ActionEntity createData(ActionEntity actionEntity, Integer idWell, Integer idActionType){
         WellEntity wellEntity = wellRepo.findById(idWell).get();
         ActionTypeEntity actionType = actionTypeRepo.findById(idActionType).get();
         actionEntity.setWell_id(wellEntity);

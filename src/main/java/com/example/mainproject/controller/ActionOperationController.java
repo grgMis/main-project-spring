@@ -25,8 +25,8 @@ public class ActionOperationController {
     @PostMapping
     public ResponseEntity createActionOper(@RequestBody ActionOperationEntity actionOperationEntity,
                                            @RequestParam Integer action_id,
-                                           @RequestParam Long action_oper_type_id,
-                                           @RequestParam Long hanger_type_id ){
+                                           @RequestParam Integer action_oper_type_id,
+                                           @RequestParam Integer hanger_type_id ){
         try {
             return ResponseEntity.ok(actionOperationService.createData(actionOperationEntity, action_id, action_oper_type_id, hanger_type_id));
         } catch (Exception e) {
