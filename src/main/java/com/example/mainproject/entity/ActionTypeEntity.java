@@ -1,6 +1,5 @@
 package com.example.mainproject.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -10,7 +9,7 @@ public class ActionTypeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer action_type_id;
+    private Long action_type_id;
 
     @ManyToOne
     @JoinColumn(name = "action_group_id", nullable = false)
@@ -22,25 +21,21 @@ public class ActionTypeEntity {
     @Column(nullable = true, length = 20)
     private String action_type_sname;
 
+<<<<<<< HEAD
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "action_type_id")
+=======
+    @OneToMany(mappedBy = "action_type_id")
+>>>>>>> parent of 31311a4 (create models)
     private List<ActionEntity> actionEntityList;
 
     public ActionTypeEntity() {
     }
 
-    public List<ActionEntity> getActionEntityList() {
-        return actionEntityList;
-    }
-
-    public void setActionEntityList(List<ActionEntity> actionEntityList) {
-        this.actionEntityList = actionEntityList;
-    }
-
-    public Integer getAction_type_id() {
+    public Long getAction_type_id() {
         return action_type_id;
     }
 
-    public void setAction_type_id(Integer action_type_id) {
+    public void setAction_type_id(Long action_type_id) {
         this.action_type_id = action_type_id;
     }
 

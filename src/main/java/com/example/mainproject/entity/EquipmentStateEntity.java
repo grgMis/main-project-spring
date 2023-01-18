@@ -1,6 +1,5 @@
 package com.example.mainproject.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -9,7 +8,7 @@ import java.util.List;
 public class EquipmentStateEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer equip_state_id;
+    private Long equip_state_id;
 
     @Column(nullable = false, length = 40)
     private String equip_state_name;
@@ -17,25 +16,21 @@ public class EquipmentStateEntity {
     @Column(nullable = true, length = 20)
     private String equip_state_sname;
 
+<<<<<<< HEAD
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "equip_state_id")
+=======
+    @OneToMany(mappedBy = "equip_state_id")
+>>>>>>> parent of 31311a4 (create models)
     private List<ActionEquipmentEntity> actionEquipmentEntityList;
 
     public EquipmentStateEntity() {
     }
 
-    public List<ActionEquipmentEntity> getActionEquipmentEntityList() {
-        return actionEquipmentEntityList;
-    }
-
-    public void setActionEquipmentEntityList(List<ActionEquipmentEntity> actionEquipmentEntityList) {
-        this.actionEquipmentEntityList = actionEquipmentEntityList;
-    }
-
-    public Integer getEquip_state_id() {
+    public Long getEquip_state_id() {
         return equip_state_id;
     }
 
-    public void setEquip_state_id(Integer equip_state_id) {
+    public void setEquip_state_id(Long equip_state_id) {
         this.equip_state_id = equip_state_id;
     }
 

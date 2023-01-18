@@ -11,7 +11,7 @@ public class EquipmentClassEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer equip_class_id;
+    private Long equip_class_id;
     @ManyToOne
     @JoinColumn(name = "equip_category_id", nullable = false)
     private EquipmentCategoryEntity equip_category_id;
@@ -22,38 +22,29 @@ public class EquipmentClassEntity {
     @Column(nullable = true, length = 20)
     private String equip_class_sname;
 
+<<<<<<< HEAD
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "equip_class_id")
     private List<EquipmentModelEntity> equipmentModelEntityList;
 
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "equip_class_id")
+=======
+    @OneToMany(mappedBy = "equip_class_id")
+    private List<EquipmentModelEntity> equipmentModelEntityList;
+
+    @OneToMany(mappedBy = "equip_class_id")
+>>>>>>> parent of 31311a4 (create models)
     private List<ActionEquipmentEntity> actionEquipmentEntityList;
 
     public EquipmentClassEntity() {
     }
 
-    public List<EquipmentModelEntity> getEquipmentModelEntityList() {
-        return equipmentModelEntityList;
-    }
-
-    public void setEquipmentModelEntityList(List<EquipmentModelEntity> equipmentModelEntityList) {
-        this.equipmentModelEntityList = equipmentModelEntityList;
-    }
-
-    public List<ActionEquipmentEntity> getActionEquipmentEntityList() {
-        return actionEquipmentEntityList;
-    }
-
-    public void setActionEquipmentEntityList(List<ActionEquipmentEntity> actionEquipmentEntityList) {
-        this.actionEquipmentEntityList = actionEquipmentEntityList;
-    }
-
-    public Integer getEquip_class_id() {
+    public Long getEquip_class_id() {
         return equip_class_id;
     }
 
-    public void setEquip_class_id(Integer equip_class_id) {
+    public void setEquip_class_id(Long equip_class_id) {
         this.equip_class_id = equip_class_id;
     }
 

@@ -1,6 +1,5 @@
 package com.example.mainproject.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -10,7 +9,7 @@ public class ActionOperationTypeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer action_oper_type_id;
+    private Long action_oper_type_id;
 
     @Column(nullable = false, length = 40)
     private String action_oper_type_name;
@@ -18,25 +17,21 @@ public class ActionOperationTypeEntity {
     @Column(nullable = true, length = 20)
     private String action_oper_type_sname;
 
+<<<<<<< HEAD
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "action_oper_type_id")
+=======
+    @OneToMany(mappedBy = "action_oper_type_id")
+>>>>>>> parent of 31311a4 (create models)
     private List<ActionOperationEntity> actionOperationEntityList;
 
     public ActionOperationTypeEntity() {
     }
 
-    public List<ActionOperationEntity> getActionOperationEntityList() {
-        return actionOperationEntityList;
-    }
-
-    public void setActionOperationEntityList(List<ActionOperationEntity> actionOperationEntityList) {
-        this.actionOperationEntityList = actionOperationEntityList;
-    }
-
-    public Integer getAction_oper_type_id() {
+    public Long getAction_oper_type_id() {
         return action_oper_type_id;
     }
 
-    public void setAction_oper_type_id(Integer action_oper_type_id) {
+    public void setAction_oper_type_id(Long action_oper_type_id) {
         this.action_oper_type_id = action_oper_type_id;
     }
 

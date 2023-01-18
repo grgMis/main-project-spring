@@ -1,6 +1,5 @@
 package com.example.mainproject.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -28,18 +27,14 @@ public class ActionOperationEntity {
     @Column(nullable = true)
     private Date action_oper_date;
 
+<<<<<<< HEAD
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "action_oper_id")
+=======
+    @OneToMany(mappedBy = "action_oper_id")
+>>>>>>> parent of 31311a4 (create models)
     private List<ActionEquipmentEntity> actionEquipmentEntityList;
 
     public ActionOperationEntity() {
-    }
-
-    public List<ActionEquipmentEntity> getActionEquipmentEntityList() {
-        return actionEquipmentEntityList;
-    }
-
-    public void setActionEquipmentEntityList(List<ActionEquipmentEntity> actionEquipmentEntityList) {
-        this.actionEquipmentEntityList = actionEquipmentEntityList;
     }
 
     public Integer getAction_oper_id() {

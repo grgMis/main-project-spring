@@ -17,17 +17,21 @@ public class ActionEquipmentController {
     private ActionEquipmentService actionEquipmentService;
 
     @GetMapping("/actionEquipAll")
+<<<<<<< HEAD
     public List<ActionEquipmentEntity> getActionEquipAll() {
+=======
+    List<ActionEquipmentEntity> getactionEquiAll() {
+>>>>>>> parent of 31311a4 (create models)
         return actionEquipmentService.getAll();
     }
 
     @PostMapping
     public ResponseEntity createActionEquip(@RequestBody ActionEquipmentEntity actionEquipmentEntity,
                                            @RequestParam Integer action_oper_id,
-                                           @RequestParam Integer equip_class_id,
+                                           @RequestParam Long equip_class_id,
                                            @RequestParam Integer equip_model_id,
                                            @RequestParam Integer equip_id,
-                                           @RequestParam Integer equip_state_id){
+                                           @RequestParam Long equip_state_id){
         try {
             return ResponseEntity.ok(actionEquipmentService.createData(actionEquipmentEntity,
                     action_oper_id, equip_class_id, equip_model_id, equip_id, equip_state_id));

@@ -1,6 +1,5 @@
 package com.example.mainproject.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.annotations.IndexColumn;
 
@@ -10,7 +9,7 @@ import java.util.List;
 public class ActionGroupEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer action_group_id;
+    private Long action_group_id;
 
     @Column(nullable = false, length = 40)
     private String action_group_name;
@@ -18,25 +17,21 @@ public class ActionGroupEntity {
     @Column(nullable = true, length = 20)
     private String action_group_sname;
 
+<<<<<<< HEAD
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "action_group_id")
+=======
+    @OneToMany(mappedBy = "action_group_id")
+>>>>>>> parent of 31311a4 (create models)
     private List<ActionTypeEntity> actionTypeEntitiesList;
 
     public ActionGroupEntity() {
     }
 
-    public List<ActionTypeEntity> getActionTypeEntitiesList() {
-        return actionTypeEntitiesList;
-    }
-
-    public void setActionTypeEntitiesList(List<ActionTypeEntity> actionTypeEntitiesList) {
-        this.actionTypeEntitiesList = actionTypeEntitiesList;
-    }
-
-    public Integer getAction_group_id() {
+    public Long getAction_group_id() {
         return action_group_id;
     }
 
-    public void setAction_group_id(Integer action_group_id) {
+    public void setAction_group_id(Long action_group_id) {
         this.action_group_id = action_group_id;
     }
 

@@ -1,6 +1,5 @@
 package com.example.mainproject.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -19,18 +18,14 @@ public class WellEntity {
     @Column(nullable = false, length = 20)
     private String well_name;
 
+<<<<<<< HEAD
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "well_id")
+=======
+    @OneToMany(mappedBy = "well_id")
+>>>>>>> parent of 31311a4 (create models)
     private List<ActionEntity> actionEntityList;
 
     public WellEntity() {
-    }
-
-    public List<ActionEntity> getActionEntityList() {
-        return actionEntityList;
-    }
-
-    public void setActionEntityList(List<ActionEntity> actionEntityList) {
-        this.actionEntityList = actionEntityList;
     }
 
     public Integer getWell_id() {
