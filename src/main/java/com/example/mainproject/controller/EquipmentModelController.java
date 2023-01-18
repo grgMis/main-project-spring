@@ -25,7 +25,7 @@ public class EquipmentModelController {
 
     @PostMapping
     public ResponseEntity createEquipModel(@RequestBody EquipmentModelEntity equipmentModel,
-                                           @RequestParam Integer equip_class_id){
+                                           @RequestParam Long equip_class_id){
         try {
             return ResponseEntity.ok(equipmentModelService.createData(equipmentModel, equip_class_id));
         } catch (Exception e) {

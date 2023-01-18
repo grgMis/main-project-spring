@@ -33,7 +33,7 @@ public class ActionOperationTypeController {
     }
 
     @GetMapping
-    public ResponseEntity getActionOperType(@RequestParam Integer action_oper_type_id) {
+    public ResponseEntity getActionOperType(@RequestParam Long action_oper_type_id) {
         try {
             return ResponseEntity.ok(actionOperationTypeService.getOne(action_oper_type_id));
         } catch (Exception e) {
@@ -42,7 +42,7 @@ public class ActionOperationTypeController {
     }
 
     @DeleteMapping("/{action_oper_type_id}")
-    public ResponseEntity deleteActionOperType(@PathVariable Integer action_oper_type_id) {
+    public ResponseEntity deleteActionOperType(@PathVariable Long action_oper_type_id) {
         try {
             return ResponseEntity.ok("Вид операции удален: " + actionOperationTypeService.deleteOne(action_oper_type_id));
         } catch (Exception e) {
@@ -51,7 +51,7 @@ public class ActionOperationTypeController {
     }
 
     @PutMapping
-    public ResponseEntity updateActionOperType(@RequestParam Integer action_oper_type_id,
+    public ResponseEntity updateActionOperType(@RequestParam Long action_oper_type_id,
                                          @RequestBody ActionOperationTypeEntity actionOperationType) {
         try {
             return ResponseEntity.ok("Операция переименована: " + actionOperationTypeService.updateData(action_oper_type_id, actionOperationType));

@@ -24,23 +24,23 @@ public class ActionTypeService {
         return (List<ActionTypeEntity>) actionTypeRepo.findAll();
     }
 
-    public ActionTypeEntity createData(ActionTypeEntity actionType, Integer id){
+    public ActionTypeEntity createData(ActionTypeEntity actionType, Long id){
         ActionGroupEntity actionGroup = actionGroupRepo.findById(id).get();
         actionType.setAction_group_id(actionGroup);
         return actionTypeRepo.save(actionType);
     }
 
-    public ActionTypeEntity getOne(Integer id) {
+    public ActionTypeEntity getOne(Long id) {
         ActionTypeEntity actionType = actionTypeRepo.findById(id).get();
         return actionType;
     }
 
-    public Integer deleteOne(Integer id){
+    public Long deleteOne(Long id){
         actionTypeRepo.deleteById(id);
         return id;
     }
 
-    public Integer updateData(Integer id, ActionTypeEntity actionType) {
+    public Long updateData(Long id, ActionTypeEntity actionType) {
         ActionTypeEntity entity = actionTypeRepo.findById(id).get();
         entity.setAction_type_name(actionType.getAction_type_name());
         entity.setAction_type_sname(actionType.getAction_type_sname());

@@ -34,7 +34,7 @@ public class ActionGroupController {
     }
 
     @GetMapping
-    public ResponseEntity getActionGroup(@RequestParam Integer action_group_id) {
+    public ResponseEntity getActionGroup(@RequestParam Long action_group_id) {
         try {
             return ResponseEntity.ok(actionGroupService.getOne(action_group_id));
         } catch (Exception e) {
@@ -43,7 +43,7 @@ public class ActionGroupController {
     }
 
     @DeleteMapping("/{action_group_id}")
-    public ResponseEntity deleteActionGroup(@PathVariable Integer action_group_id) {
+    public ResponseEntity deleteActionGroup(@PathVariable Long action_group_id) {
         try {
             return ResponseEntity.ok("Групппа удалена: " + actionGroupService.deleteOne(action_group_id));
         } catch (Exception e) {
@@ -52,7 +52,7 @@ public class ActionGroupController {
     }
 
     @PutMapping
-    public ResponseEntity updateActionGroup(@RequestParam Integer action_group_id,
+    public ResponseEntity updateActionGroup(@RequestParam Long action_group_id,
                                             @RequestBody ActionGroupEntity actionGroup) {
         try {
             return ResponseEntity.ok("Группа переименована: " + actionGroupService.updateData(action_group_id, actionGroup));

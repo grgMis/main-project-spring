@@ -33,7 +33,7 @@ public class EquipmentCategoryController {
     }
 
     @GetMapping
-    public ResponseEntity getEquipCategory(@RequestParam Integer equip_category_id) {
+    public ResponseEntity getEquipCategory(@RequestParam Long equip_category_id) {
         try {
             return ResponseEntity.ok(equipmentCategoryService.getOne(equip_category_id));
         } catch (Exception e) {
@@ -42,7 +42,7 @@ public class EquipmentCategoryController {
     }
 
     @DeleteMapping("/{equip_category_id}")
-    public ResponseEntity deleteEquipCategory(@PathVariable Integer equip_category_id) {
+    public ResponseEntity deleteEquipCategory(@PathVariable Long equip_category_id) {
         try {
             return ResponseEntity.ok("Категория удалена: " + equipmentCategoryService.deleteOne(equip_category_id));
         } catch (Exception e) {
@@ -51,7 +51,7 @@ public class EquipmentCategoryController {
     }
 
     @PutMapping
-    public ResponseEntity updateEquipCategory(@RequestParam Integer equip_category_id,
+    public ResponseEntity updateEquipCategory(@RequestParam Long equip_category_id,
                                             @RequestBody EquipmentCategoryEntity equipmentCategory) {
         try {
             return ResponseEntity.ok("Группа переименована: " + equipmentCategoryService.updateData(equip_category_id, equipmentCategory));

@@ -15,15 +15,15 @@ public class DeptController {
 
     @Autowired
     private DeptService deptService;
-
     @GetMapping("/deptAll")
-    public List<DeptEntity> getDeptAll() {
+    List<DeptEntity> getDeptAll() {
         return deptService.getAll();
     }
 
+
     @PostMapping
     public ResponseEntity createDept(@RequestBody DeptEntity deptEntity,
-                                           @RequestParam Integer dept_type_id){
+                                           @RequestParam Long dept_type_id){
         try {
             return ResponseEntity.ok(deptService.createData(deptEntity, dept_type_id));
         } catch (Exception e) {

@@ -25,7 +25,7 @@ public class ActionTypeController {
 
     @PostMapping
     public ResponseEntity createActionType(@RequestBody ActionTypeEntity actionType,
-                                           @RequestParam Integer action_group_id){
+                                           @RequestParam Long action_group_id){
         try {
             return ResponseEntity.ok(actionTypeService.createData(actionType, action_group_id));
         } catch (Exception e) {
@@ -34,7 +34,7 @@ public class ActionTypeController {
     }
 
     @GetMapping
-    public ResponseEntity getActionType(@RequestParam Integer action_group_id) {
+    public ResponseEntity getActionType(@RequestParam Long action_group_id) {
         try {
             return ResponseEntity.ok(actionTypeService.getOne(action_group_id));
         } catch (Exception e) {
@@ -43,7 +43,7 @@ public class ActionTypeController {
     }
 
     @DeleteMapping("/{action_group_id}")
-    public ResponseEntity deleteActionType(@PathVariable Integer action_group_id) {
+    public ResponseEntity deleteActionType(@PathVariable Long action_group_id) {
         try {
             return ResponseEntity.ok(actionTypeService.deleteOne(action_group_id));
         } catch (Exception e) {
@@ -52,7 +52,7 @@ public class ActionTypeController {
     }
 
     @PutMapping
-    public ResponseEntity updateActionType(@RequestParam Integer action_type_id,
+    public ResponseEntity updateActionType(@RequestParam Long action_type_id,
                                            @RequestBody ActionTypeEntity actionType) {
         try {
             return ResponseEntity.ok(actionTypeService.updateData(action_type_id, actionType));

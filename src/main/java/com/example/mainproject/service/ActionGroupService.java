@@ -2,7 +2,6 @@ package com.example.mainproject.service;
 
 import com.example.mainproject.entity.ActionGroupEntity;
 import com.example.mainproject.entity.DeptEntity;
-import com.example.mainproject.model.ActionGroup;
 import com.example.mainproject.repository.ActionGroupRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,21 +18,21 @@ public class ActionGroupService {
         return (List<ActionGroupEntity>) actionGroupRepo.findAll();
     }
 
-    public ActionGroup createData(ActionGroupEntity actionGroup) {
-        return ActionGroup.toModel(actionGroupRepo.save(actionGroup));
+    public ActionGroupEntity createData(ActionGroupEntity actionGroup) {
+        return actionGroupRepo.save(actionGroup);
     }
 
-    public ActionGroup getOne(Integer id) {
+    public ActionGroupEntity getOne(Long id) {
         ActionGroupEntity actionGroup = actionGroupRepo.findById(id).get();
-        return ActionGroup.toModel(actionGroup);
+        return actionGroup;
     }
 
-    public Integer deleteOne(Integer id){
+    public Long deleteOne(Long id){
         actionGroupRepo.deleteById(id);
         return id;
     }
 
-    public Integer updateData(Integer id, ActionGroupEntity actionGroup) {
+    public Long updateData(Long id, ActionGroupEntity actionGroup) {
         ActionGroupEntity entity = actionGroupRepo.findById(id).get();
         entity.setAction_group_name(actionGroup.getAction_group_name());
         entity.setAction_group_sname(actionGroup.getAction_group_sname());

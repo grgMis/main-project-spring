@@ -1,7 +1,6 @@
 package com.example.mainproject.service;
 
 import com.example.mainproject.entity.*;
-import com.example.mainproject.model.ActionOperation;
 import com.example.mainproject.repository.ActionOperationRepo;
 import com.example.mainproject.repository.ActionOperationTypeRepo;
 import com.example.mainproject.repository.ActionRepo;
@@ -31,22 +30,22 @@ public class ActionOperationService {
         return (List<ActionOperationEntity>) actionOperationRepo.findAll();
     }
 
-    public ActionOperation createData(ActionOperationEntity actionOperationEntity,
+    public ActionOperationEntity createData(ActionOperationEntity actionOperationEntity,
                                             Integer idAction,
-                                            Integer idActionOperType,
-                                            Integer idHangerType ){
+                                            Long idActionOperType,
+                                            Long idHangerType ){
         ActionEntity actionEntity = actionRepo.findById(idAction).get();
         ActionOperationTypeEntity actionOperationTypeEntity = actionOperationTypeRepo.findById(idActionOperType).get();
         HangerTypeEntity hangerTypeEntity = hangerTypeRepo.findById(idHangerType).get();
         actionOperationEntity.setAction_id(actionEntity);
         actionOperationEntity.setAction_oper_type_id(actionOperationTypeEntity);
         actionOperationEntity.setHanger_type_id(hangerTypeEntity);
-        return ActionOperation.toModel(actionOperationRepo.save(actionOperationEntity));
+        return actionOperationRepo.save(actionOperationEntity);
     }
 
-    public ActionOperation getOne(Integer id) {
+    public ActionOperationEntity getOne(Integer id) {
         ActionOperationEntity actionOperationEntity = actionOperationRepo.findById(id).get();
-        return ActionOperation.toModel(actionOperationEntity);
+        return actionOperationEntity;
     }
 
     public Integer deleteOne(Integer id){
