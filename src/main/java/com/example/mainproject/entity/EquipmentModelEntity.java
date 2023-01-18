@@ -22,11 +22,9 @@ public class EquipmentModelEntity {
     @Column(nullable = true, length = 20)
     private String equip_model_sname;
 
-    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "equip_model_id")
     private List<EquipmentEntity> equipmentEntityList;
 
-    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "equip_model_id")
     private List<ActionEquipmentEntity> actionEquipmentEntityList;
 

@@ -1,5 +1,6 @@
 package com.example.mainproject.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -21,9 +22,11 @@ public class EquipmentClassEntity {
     @Column(nullable = true, length = 20)
     private String equip_class_sname;
 
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "equip_class_id")
     private List<EquipmentModelEntity> equipmentModelEntityList;
 
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "equip_class_id")
     private List<ActionEquipmentEntity> actionEquipmentEntityList;
 

@@ -14,7 +14,6 @@ public class HangerTypeEntity {
     @Column(nullable = false, length = 20)
     private String hanger_type_name;
 
-    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "hanger_type_id")
     private List<ActionOperationEntity> actionOperationEntityList;
 

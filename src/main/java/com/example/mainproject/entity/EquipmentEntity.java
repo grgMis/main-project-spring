@@ -22,7 +22,6 @@ public class EquipmentEntity {
     @Column(nullable = true, length = 40)
     private String inventory_number;
 
-    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "equip_id")
     private List<ActionEquipmentEntity> actionEquipmentEntityList;
 

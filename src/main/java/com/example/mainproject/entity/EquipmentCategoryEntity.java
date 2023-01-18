@@ -17,7 +17,6 @@ public class EquipmentCategoryEntity {
     @Column(nullable = true, length = 20)
     private String equip_category_sname;
 
-    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "equip_category_id")
     private List<EquipmentClassEntity> equipmentClassEntityList;
 

@@ -22,7 +22,6 @@ public class ActionTypeEntity {
     @Column(nullable = true, length = 20)
     private String action_type_sname;
 
-    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "action_type_id")
     private List<ActionEntity> actionEntityList;
 

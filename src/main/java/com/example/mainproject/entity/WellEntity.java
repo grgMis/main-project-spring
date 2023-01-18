@@ -19,7 +19,6 @@ public class WellEntity {
     @Column(nullable = false, length = 20)
     private String well_name;
 
-    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "well_id")
     private List<ActionEntity> actionEntityList;
 

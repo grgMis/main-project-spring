@@ -18,7 +18,6 @@ public class ActionOperationTypeEntity {
     @Column(nullable = true, length = 20)
     private String action_oper_type_sname;
 
-    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "action_oper_type_id")
     private List<ActionOperationEntity> actionOperationEntityList;
 

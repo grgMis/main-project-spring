@@ -1,8 +1,6 @@
 package com.example.mainproject.controller;
 
 import com.example.mainproject.entity.ActionEquipmentEntity;
-import com.example.mainproject.entity.DeptEntity;
-import com.example.mainproject.entity.EquipmentClassEntity;
 import com.example.mainproject.service.ActionEquipmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8080")
 @RequestMapping("/actionEquip")
 public class ActionEquipmentController {
 
@@ -18,7 +17,7 @@ public class ActionEquipmentController {
     private ActionEquipmentService actionEquipmentService;
 
     @GetMapping("/actionEquipAll")
-    List<ActionEquipmentEntity> getActionEquipAll() {
+    public List<ActionEquipmentEntity> getActionEquipAll() {
         return actionEquipmentService.getAll();
     }
 

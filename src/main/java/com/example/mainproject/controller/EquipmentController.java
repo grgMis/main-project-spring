@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8080")
 @RequestMapping("/equip")
 public class EquipmentController {
 
@@ -18,7 +19,7 @@ public class EquipmentController {
     private EquipmentService equipmentService;
 
     @GetMapping("/equipAll")
-    List<EquipmentEntity> getEquipAll() {
+    public List<EquipmentEntity> getEquipAll() {
         return equipmentService.getAll();
     }
 

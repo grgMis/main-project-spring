@@ -17,7 +17,6 @@ public class DeptTypeEntity {
     @Column(nullable = true, length = 20)
     private String dept_type_sname;
 
-    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "dept_type_id")
     private List<DeptEntity> deptEntityList;
 

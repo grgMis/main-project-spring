@@ -28,7 +28,6 @@ public class ActionOperationEntity {
     @Column(nullable = true)
     private Date action_oper_date;
 
-    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "action_oper_id")
     private List<ActionEquipmentEntity> actionEquipmentEntityList;
 
