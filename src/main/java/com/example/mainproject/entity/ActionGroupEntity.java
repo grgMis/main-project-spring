@@ -17,11 +17,7 @@ public class ActionGroupEntity {
     @Column(nullable = true, length = 20)
     private String action_group_sname;
 
-<<<<<<< HEAD
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "action_group_id")
-=======
-    @OneToMany(mappedBy = "action_group_id")
->>>>>>> parent of 31311a4 (create models)
     private List<ActionTypeEntity> actionTypeEntitiesList;
 
     public ActionGroupEntity() {

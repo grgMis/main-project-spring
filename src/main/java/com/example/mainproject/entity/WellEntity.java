@@ -18,11 +18,7 @@ public class WellEntity {
     @Column(nullable = false, length = 20)
     private String well_name;
 
-<<<<<<< HEAD
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "well_id")
-=======
-    @OneToMany(mappedBy = "well_id")
->>>>>>> parent of 31311a4 (create models)
     private List<ActionEntity> actionEntityList;
 
     public WellEntity() {

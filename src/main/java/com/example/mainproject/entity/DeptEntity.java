@@ -30,13 +30,8 @@ public class DeptEntity {
     @Column(nullable = true, length = 20)
     private String dept_sname;
 
-<<<<<<< HEAD
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "dept_id")
-=======
-    @OneToMany(mappedBy = "dept_id")
->>>>>>> parent of 31311a4 (create models)
     private List<WellEntity> wellEntityList;
-
 
     public DeptEntity() {
     }

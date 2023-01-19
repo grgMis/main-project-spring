@@ -17,11 +17,8 @@ public class ActionEquipmentController {
     private ActionEquipmentService actionEquipmentService;
 
     @GetMapping("/actionEquipAll")
-<<<<<<< HEAD
+
     public List<ActionEquipmentEntity> getActionEquipAll() {
-=======
-    List<ActionEquipmentEntity> getactionEquiAll() {
->>>>>>> parent of 31311a4 (create models)
         return actionEquipmentService.getAll();
     }
 

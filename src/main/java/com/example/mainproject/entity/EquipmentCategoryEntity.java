@@ -16,11 +16,7 @@ public class EquipmentCategoryEntity {
     @Column(nullable = true, length = 20)
     private String equip_category_sname;
 
-<<<<<<< HEAD
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "equip_category_id")
-=======
-    @OneToMany(mappedBy = "equip_category_id")
->>>>>>> parent of 31311a4 (create models)
     private List<EquipmentClassEntity> equipmentClassEntityList;
 
     public EquipmentCategoryEntity() {

@@ -21,17 +21,11 @@ public class EquipmentModelEntity {
     @Column(nullable = true, length = 20)
     private String equip_model_sname;
 
-<<<<<<< HEAD
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "equip_model_id")
     private List<EquipmentEntity> equipmentEntityList;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "equip_model_id")
-=======
-    @OneToMany(mappedBy = "equip_model_id")
-    private List<EquipmentEntity> equipmentEntityList;
-
-    @OneToMany(mappedBy = "equip_model_id")
->>>>>>> parent of 31311a4 (create models)
     private List<ActionEquipmentEntity> actionEquipmentEntityList;
 
     public EquipmentModelEntity() {
