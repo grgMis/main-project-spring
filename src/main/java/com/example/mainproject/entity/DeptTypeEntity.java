@@ -16,8 +16,12 @@ public class DeptTypeEntity {
     @Column(nullable = true, length = 20)
     private String dept_type_sname;
 
+<<<<<<< HEAD
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "dept_type_id")
+=======
+    @OneToMany(mappedBy = "dept_type_id")
+>>>>>>> parent of 31311a4 (create models)
     private List<DeptEntity> deptEntityList;
 
 

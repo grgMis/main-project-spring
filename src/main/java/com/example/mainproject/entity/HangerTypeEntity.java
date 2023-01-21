@@ -13,7 +13,11 @@ public class HangerTypeEntity {
     @Column(nullable = false, length = 20)
     private String hanger_type_name;
 
+<<<<<<< HEAD
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "hanger_type_id")
+=======
+    @OneToMany(mappedBy = "hanger_type_id")
+>>>>>>> parent of 31311a4 (create models)
     private List<ActionOperationEntity> actionOperationEntityList;
 
     public HangerTypeEntity() {

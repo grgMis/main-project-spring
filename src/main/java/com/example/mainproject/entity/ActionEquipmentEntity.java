@@ -1,7 +1,9 @@
 package com.example.mainproject.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -17,6 +19,7 @@ public class ActionEquipmentEntity {
     private ActionOperationEntity action_oper_id;
 
     @Column(nullable = true)
+    @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
     private Date equip_date_entry;
 
     @ManyToOne

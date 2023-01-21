@@ -27,7 +27,11 @@ public class ActionOperationEntity {
     @Column(nullable = true)
     private Date action_oper_date;
 
+<<<<<<< HEAD
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "action_oper_id")
+=======
+    @OneToMany(mappedBy = "action_oper_id")
+>>>>>>> parent of 31311a4 (create models)
     private List<ActionEquipmentEntity> actionEquipmentEntityList;
 
     public ActionOperationEntity() {
